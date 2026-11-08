@@ -7,10 +7,10 @@ export const me = {
   intro:
     'Paper 플러그인으로 RPG와 PvP 미니게임을 만들고, 그걸 받치는 서버 내부 도구를 직접 짭니다. 버전마다 바뀌는 NMS를 감싸는 API, 명령 처리 과정을 바이트코드로 고치는 에이전트, Rust로 다시 쓰는 서버까지 다룹니다.',
   tools: ['Kotlin', 'Java', 'Paper API', 'Fabric', 'Netty', 'Byte Buddy', 'Rust', 'Next.js'],
-  email: 'you@example.com', // TODO: 공개할 연락처로 교체
+  email: 'perdume375@gmail.com',
   links: [
     { label: 'GitHub', href: 'https://github.com/Perdume' },
-    { label: '이메일', href: 'mailto:you@example.com' },
+    { label: '이메일', href: 'mailto:perdume375@gmail.com' },
   ],
 }
 
