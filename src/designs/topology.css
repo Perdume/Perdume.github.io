@@ -1,0 +1,70 @@
+:root {
+  --haze: #e6ebef;
+  --ink: #0e1a24;
+  --muted: #4d5b67;
+  --node: #ffffff;
+  --wire: #8a99a6;
+  --amber: #f2a900;
+  --font: "Geist", "Pretendard Variable", "Pretendard", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--haze); color: var(--ink); }
+body { margin: 0; font: 400 16px/1.65 var(--font); }
+h1, h2, p, figure { margin: 0; }
+a { color: var(--ink); font-weight: 600; text-decoration-color: var(--amber); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+a:hover { background: var(--amber); text-decoration: none; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+.top, .stage, .about, .foot { max-width: 1240px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+@media (min-width: 768px) { .top, .stage, .about, .foot { padding-left: 40px; padding-right: 40px; } }
+
+.top { padding-top: 64px; padding-bottom: 40px; display: grid; gap: 12px; }
+.top h1 { font-size: clamp(44px, 6vw, 76px); line-height: 1; font-weight: 700; letter-spacing: -0.035em; }
+.top p { font-size: 20px; color: var(--muted); max-width: 30ch; }
+
+.stage { display: grid; gap: 40px; padding-bottom: 80px; }
+@media (min-width: 980px) { .stage { grid-template-columns: 360px minmax(0, 1fr); gap: 56px; align-items: start; } }
+
+/* Diagram is the hero */
+.diagram { display: grid; gap: 10px; }
+@media (min-width: 980px) { .diagram { order: 2; } .side { order: 1; } }
+.map { width: 100%; height: auto; display: block; }
+.wire { stroke: var(--wire); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.wire.on { stroke: var(--ink); stroke-width: 3; stroke-dasharray: none; }
+.box { fill: var(--node); stroke: var(--wire); stroke-width: 1.5; rx: 6px; }
+.back { fill: var(--haze); }
+.node.on .box:not(.back) { fill: var(--amber); stroke: var(--ink); stroke-width: 2; }
+.node.on .back { stroke: var(--ink); }
+.nl { font: 600 16px var(--font); fill: var(--ink); }
+.ns { font: 400 12px var(--font); fill: var(--muted); }
+.diagram figcaption { font-size: 14px; color: var(--muted); }
+
+/* Side list */
+.lh { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+.picks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--wire); }
+.pick {
+  all: unset; box-sizing: border-box; cursor: pointer; width: 100%;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  padding: 14px 0; border-bottom: 1px solid var(--wire);
+}
+.pt { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+.pk { font-size: 13px; color: var(--muted); text-align: right; }
+.pick:hover .pt { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.pick[aria-pressed="true"] { box-shadow: inset 4px 0 0 var(--ink); padding-left: 16px; }
+.pick:focus-visible { outline-offset: -3px; }
+
+.detail { display: grid; gap: 10px; margin-top: 24px; }
+.dm { font-size: 14px; color: var(--muted); }
+.v { display: block; font-size: 48px; line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.stack { font-size: 14px; color: var(--muted); }
+.detail a { justify-self: start; }
+
+.about { padding-bottom: 80px; display: grid; gap: 12px; }
+.about p:first-child { font-size: 20px; line-height: 1.6; max-width: 42ch; }
+
+.foot { padding-top: 32px; padding-bottom: 56px; border-top: 2px solid var(--ink); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+.foot p { font-size: 18px; font-weight: 600; }
+.foot nav { display: flex; gap: 20px; }
+
+.private { font-size: 14px; opacity: .75; }

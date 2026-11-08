@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>디자인 시안 비교</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <style>
+      :root { --bg: #ffffff; --ink: #1d1f24; --muted: #5c616b; --line: #d9dbe0; color-scheme: light; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.6 "Pretendard Variable", Pretendard, system-ui, sans-serif; }
+      .wrap { max-width: 1400px; margin: 0 auto; padding: 40px 16px 64px; }
+      h1 { font-size: 24px; margin: 0 0 4px; }
+      .sub { color: var(--muted); margin: 0 0 32px; }
+      .grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+      @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
+      figure { margin: 0; display: grid; gap: 12px; }
+      .frame { position: relative; aspect-ratio: 1440 / 900; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: #eee; }
+      .frame iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
+      figcaption h2 { font-size: 18px; margin: 0; }
+      figcaption h2 a { color: inherit; }
+      figcaption p { margin: 4px 0 0; color: var(--muted); max-width: 52ch; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>포트폴리오 시안 3가지</h1>
+      <p class="sub">마인크래프트 플러그인·서버 개발 포트폴리오. 블록이나 픽셀 대신 서버 개발의 언어로. 제목을 누르면 실제 크기로 열립니다.</p>
+      <div class="grid">
+        <figure>
+          <div class="frame"><iframe src="./tick.html" title="Tick 미리보기" tabindex="-1"></iframe></div>
+          <figcaption>
+            <h2><a href="./tick.html">A. Tick</a></h2>
+            <p>첫 화면에 실시간 틱 그래프. 막대 하나가 틱 하나, 50ms 한계선 아래에서 돌아갑니다. 작업은 대표 수치가 보이는 표로.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><iframe src="./topology.html" title="Topology 미리보기" tabindex="-1"></iframe></div>
+          <figcaption>
+            <h2><a href="./topology.html">B. Topology</a></h2>
+            <p>클라이언트, Paper·Rust 서버, 서버 내부, 플러그인, 운영 도구로 이어지는 구조도가 주인공. 작업을 고르면 그 작업이 맡은 층이 켜집니다.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><iframe src="./releases.html" title="Release Notes 미리보기" tabindex="-1"></iframe></div>
+          <figcaption>
+            <h2><a href="./releases.html">C. Release Notes</a></h2>
+            <p>작업 하나가 릴리스 하나. 거대한 버전 숫자와 추가·수정·성능으로 나눈 변경 내역. 짙은 청록 바탕.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <script>
+      const fit = () => document.querySelectorAll('.frame').forEach((f) => {
+        f.querySelector('iframe').style.transform = `scale(${f.clientWidth / 1440})`
+      })
+      addEventListener('resize', fit); fit()
+    </script>
+  </body>
+</html>
